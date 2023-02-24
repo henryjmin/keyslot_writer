@@ -1,0 +1,1 @@
+void validate_keyslots();

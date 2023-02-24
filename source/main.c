@@ -43,6 +43,7 @@
 #include <utils/util.h>
 
 #include "keys/keys.h"
+#include "writer/writer.h"
 
 hekate_config h_cfg;
 boot_cfg_t __attribute__((section ("._boot_cfg"))) b_cfg;
@@ -311,6 +312,16 @@ void dump_amiibo_keys()
 
 void dump_mariko_partial_keys();
 
+void validate()
+{
+	validate_keyslots();
+}
+
+/*void write()
+{
+
+}*/
+
 ment_t ment_partials[] = {
 	MDEF_BACK(colors[0]),
 	MDEF_CHGLINE(),
@@ -354,6 +365,9 @@ ment_t ment_top[] = {
 	MDEF_HANDLER_EX("Reboot (OFW)", &STATE_REBOOT_BYPASS_FUSES, power_set_state_ex, colors[3]),
 	MDEF_HANDLER_EX("Reboot (RCM)", &STATE_REBOOT_RCM, power_set_state_ex, colors[4]),
 	MDEF_HANDLER_EX("Power off", &STATE_POWER_OFF, power_set_state_ex, colors[5]),
+	MDEF_CAPTION("---------------", colors[0]),
+	MDEF_HANDLER("Validate keyslots", validate, colors[1]),
+	// MDEF_HANDLER("Write to keyslots", write, colors[2]),
 	MDEF_END()
 };
 
