@@ -361,6 +361,9 @@ void write_keyslots()
 
     read_keys(keyset, "sd:/switch/keyslot.keys");
 
+    gfx_printf("[%kLo%kck%kpi%kck%k_R%kCM%k v%d.%d.%d%k]\n",
+               colors[0], colors[1], colors[2], colors[3], colors[4], colors[5], 0xFFFF00FF, LP_VER_MJ, LP_VER_MN, LP_VER_BF, 0xFFCCCCCC);
+
     se_aes_key_set(12, keyset->mariko_kek, SE_KEY_128_SIZE);
     gfx_printf("\n%kwrote keyslot 12", colors[(color_idx++) % 6]);
     se_aes_key_set(13, keyset->mariko_bek, SE_KEY_128_SIZE);
@@ -372,7 +375,7 @@ void write_keyslots()
 
     gfx_printf("\n\n%kDONE", colors[(color_idx++) % 6]);
     gfx_printf("\n\n%kPress a button to return to the menu.", colors[(color_idx++) % 6]);
-    
+
     minerva_change_freq(FREQ_800);
     btn_wait();
     gfx_clear_grey(0x1B);
