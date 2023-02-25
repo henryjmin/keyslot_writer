@@ -317,10 +317,10 @@ void validate()
 	validate_keyslots();
 }
 
-/*void write()
+void write()
 {
-
-}*/
+	write_keyslots();
+}
 
 ment_t ment_partials[] = {
 	MDEF_BACK(colors[0]),
@@ -367,7 +367,7 @@ ment_t ment_top[] = {
 	MDEF_HANDLER_EX("Power off", &STATE_POWER_OFF, power_set_state_ex, colors[5]),
 	MDEF_CAPTION("---------------", colors[0]),
 	MDEF_HANDLER("Validate keyslots", validate, colors[1]),
-	// MDEF_HANDLER("Write to keyslots", write, colors[2]),
+	MDEF_HANDLER("Write to keyslots", write, colors[2]),
 	MDEF_END()
 };
 

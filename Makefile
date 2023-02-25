@@ -14,7 +14,7 @@ include ./Versions.inc
 
 ################################################################################
 
-TARGET := Lockpick_RCM
+TARGET := keyslot_writer
 BUILDDIR := build
 OUTPUTDIR := output
 SOURCEDIR := source
